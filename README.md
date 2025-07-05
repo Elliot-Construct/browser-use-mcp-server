@@ -180,6 +180,16 @@ docker run --rm -p8000:8000 -p5900:5900 \
 
 *Note: The `:ro` flag in the volume mount (`-v`) makes the password file read-only inside the container for added security.*
 
+### Docker Compose
+
+To simplify running the service you can use `docker compose`:
+
+```bash
+docker compose up
+```
+
+The compose file builds the image, exposes ports `8000` and `5900`, reads environment variables from `.env`, and mounts `vnc_password.txt` if present for the VNC password.
+
 ### VNC Viewer
 
 ```bash

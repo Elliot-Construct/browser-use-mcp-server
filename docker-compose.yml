@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  server:
+    build: .
+    image: browser-use-mcp-server:latest
+    container_name: browser-use-mcp-server
+    ports:
+      - "8000:8000"
+      - "5900:5900"
+    env_file:
+      - .env
+    volumes:
+      # Optional: mount a file containing VNC password
+      - ./vnc_password.txt:/run/secrets/vnc_password:ro
+    restart: unless-stopped
